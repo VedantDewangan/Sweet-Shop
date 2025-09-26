@@ -1,14 +1,15 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const { connectDB } = require("./database/connectDB");
-const cookieParser = require("cookie-parser");
-const { AuthRoute } = require("./routes/AuthRoute");
-const { SweetRoute } = require("./routes/SweetRoute");
-const cors = require("cors");
+import express from "express";
+import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import { AuthRoute } from "./routes/AuthRoute.js";
+import { SweetRoute } from "./routes/SweetRoute.js";
+import cors from "cors";
+
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
+
+// --- Middleware Setup ---
 app.use(express.json());
 app.use(cookieParser());
 app.use(
@@ -19,6 +20,7 @@ app.use(
   })
 );
 
+// --- Routes ---
 app.get("/", (req, res) => {
   res.status(200).json({
     message: "API is live",
@@ -28,12 +30,4 @@ app.get("/", (req, res) => {
 app.use("/api/auth", AuthRoute);
 app.use("/api", SweetRoute);
 
-connectDB()
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Your backend is live on port ${PORT}`);
-    });
-  })
-  .catch((e) => {
-    console.log(e);
-  });
+export default app;
