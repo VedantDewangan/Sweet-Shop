@@ -1,0 +1,42 @@
+.admin-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 4rem 1rem;
+}
+
+.add-btn,
+.back-btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.add-btn:hover {
+  background-color: #3e8e41;
+}
+
+.back-btn {
+  background-color: #ccc;
+  color: #333;
+}
+
+.back-btn:hover {
+  background-color: #bbb;
+}
+
+.all-food-con {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
