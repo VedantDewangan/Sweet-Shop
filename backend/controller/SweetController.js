@@ -53,11 +53,11 @@ export const createNewSweet = async (req, res) => {
       });
     }
 
-    const sweet = await Sweet({
-      name: name,
-    });
+    // FIX: Changed to correctly query the database for an existing sweet.
+    const existingSweet = await Sweet.findOne({ name: name });
 
-    if (sweet.length >= 1) {
+    // FIX: Changed to check if a document was found (not array length).
+    if (existingSweet) {
       return res.status(400).json({
         message: "This Sweet already exist",
       });
@@ -77,7 +77,7 @@ export const createNewSweet = async (req, res) => {
       sweet_detail: new_sweet,
     });
   } catch (error) {
-    console.log("Error in getAllSweet : ", error);
+    console.log("Error in createNewSweet : ", error);
     res.status(501).json({
       message: "Internal Server Error",
     });
@@ -108,6 +108,7 @@ export const updateSweet = async (req, res) => {
       description: description,
       price: price,
       image_link: image_link,
+      quantity: quantity, // FIX: Added missing quantity field
       category: category,
     });
 
@@ -115,7 +116,7 @@ export const updateSweet = async (req, res) => {
       message: "Sweet updated successfully",
     });
   } catch (error) {
-    console.log("Error in getAllSweet : ", error);
+    console.log("Error in updateSweet : ", error);
     res.status(501).json({
       message: "Internal Server Error",
     });
@@ -143,30 +144,23 @@ export const purchaseSweet = async (req, res) => {
   try {
     const data = req.params.id;
 
-    const sweet = await Sweet.find({
-      _id: data,
-    });
-    if (sweet.length == 0) {
+    const sweet = await Sweet.findById(data); // Use findById for efficiency
+    if (!sweet) {
       return res.status(404).json({
         message: "Sweet not found",
       });
     }
 
-    const num = sweet[0].quantity;
-    if (num == 0) {
+    const num = sweet.quantity;
+    if (num === 0) {
       return res.status(400).json({
         message: "Not in stock",
       });
     }
 
-    await Sweet.findOneAndUpdate(
-      {
-        _id: data,
-      },
-      {
-        quantity: num - 1,
-      }
-    );
+    await Sweet.findByIdAndUpdate(data, {
+      quantity: num - 1,
+    });
 
     res.status(200).json({
       message: "Purchase successfully",
@@ -184,23 +178,22 @@ export const restockSweet = async (req, res) => {
     const data = req.params.id;
     const { new_quantity } = req.body;
 
-    const sweet = await Sweet.find({
-      _id: data,
-    });
-    if (sweet.length == 0) {
+    if (new_quantity === undefined || new_quantity < 0) {
+      return res
+        .status(400)
+        .json({ message: "Please provide a valid quantity" });
+    }
+
+    const sweet = await Sweet.findById(data);
+    if (!sweet) {
       return res.status(404).json({
         message: "Sweet not found",
       });
     }
 
-    await Sweet.findOneAndUpdate(
-      {
-        _id: data,
-      },
-      {
-        quantity: new_quantity,
-      }
-    );
+    await Sweet.findByIdAndUpdate(data, {
+      quantity: new_quantity,
+    });
 
     res.status(200).json({
       message: "Restock the sweet successfully",
