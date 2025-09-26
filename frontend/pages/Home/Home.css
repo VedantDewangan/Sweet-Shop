@@ -1,0 +1,196 @@
+.hero-section-1 {
+  background-image: url("../../public/background.jpg");
+  height: 60vh;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-section-1 span {
+  font-family: "Cedarville Cursive", cursive;
+  font-style: italic;
+}
+
+.hero-section-1 h2 {
+  font-size: 3.4em;
+}
+
+.hero-section-1 p {
+  font-size: 1.4em;
+  font-weight: 200;
+  padding: 0px 0px 16px 0px;
+}
+
+.hero-section-1 button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  cursor: pointer;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  font-size: 1em;
+  background-color: rgb(255, 88, 143);
+  transition: all 0.2s ease-in;
+  color: white;
+}
+
+.hero-section-1 button:hover {
+  background-color: rgb(255, 24, 101);
+}
+
+.hero-section-2 {
+  overflow-x: hidden;
+}
+
+.hero-section-2 h2 {
+  text-align: center;
+  padding-top: 10vh;
+  font-size: 2.6em;
+}
+
+.hero-section-2 p {
+  font-size: 1.6em;
+  font-weight: 200;
+  text-align: center;
+}
+
+.hero-section-1 {
+  background-image: url("../../public/background.jpg");
+  height: 60vh;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-section-1 span {
+  font-family: "Cedarville Cursive", cursive;
+  font-style: italic;
+}
+
+.hero-section-1 h2 {
+  font-size: 3.4em;
+}
+
+.hero-section-1 p {
+  font-size: 1.4em;
+  font-weight: 200;
+  padding: 0px 0px 16px 0px;
+}
+
+.hero-section-1 button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 22px;
+  cursor: pointer;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  font-size: 1em;
+  background-color: rgb(255, 88, 143);
+  transition: all 0.2s ease-in;
+  color: white;
+}
+
+.hero-section-1 button:hover {
+  background-color: rgb(255, 24, 101);
+}
+
+.hero-section-2 {
+  overflow-x: hidden;
+}
+
+.hero-section-2 h2 {
+  text-align: center;
+  padding-top: 10vh;
+  font-size: 2.6em;
+}
+
+.hero-section-2 p {
+  font-size: 1.6em;
+  font-weight: 200;
+  text-align: center;
+}
+
+.poster {
+  padding: 5vh;
+  border-radius: 15px;
+  color: white;
+  font-size: 1.2em;
+  margin: 10vh auto;
+  width: 80vw;
+  background-image: linear-gradient(90deg, #9333ea, #ec4899);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster button {
+  padding: 10px 20px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  margin: 20px 0px 0px 0px;
+  transition: all 0.2s ease-in;
+  border-radius: 5px;
+}
+
+.poster button:active {
+  scale: 0.9;
+}
+
+.hero-section-3 {
+  padding: 5vh 10vw;
+  text-align: center;
+}
+
+.hero-section-3 h2 {
+  font-size: 2.4em;
+  margin-bottom: 40px;
+}
+
+.hero-card-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.hero-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.hero-card:hover {
+  transform: translateY(-10px);
+}
+
+.hero-card-icon {
+  font-size: 3em;
+  color: rgb(255, 88, 143);
+  margin-bottom: 20px;
+}
+
+.hero-card h3 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+.hero-card p {
+  font-size: 1.2em;
+  font-weight: 200;
+  color: #555;
+}
