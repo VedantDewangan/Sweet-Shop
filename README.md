@@ -114,6 +114,40 @@ npm run dev
 ### ➕ Add New Sweet  
 ![Add New Sweet](https://github.com/VedantDewangan/Sweet-Shop/raw/main/6_AddNewSweet.png)
 
+## 🧪 Testing
+
+This project was built following Test-Driven Development (TDD) principles to ensure reliability and maintainability. The backend has extensive test coverage for all API endpoints, including authentication and CRUD operations for sweets.
+
+All tests have successfully passed, confirming the stability of the application's core logic.
+
+For a detailed breakdown of all test cases, please see the public documentation:
+
+[View Detailed Test Cases](https://docs.google.com/document/d/1j5LB7cIASSESlG4oVnNT4HI2rvqRtMXPeAvs2rIbFLk/edit?tab=t.0)
+
+#### Testcase  
+![test](https://github.com/VedantDewangan/Sweet-Shop/raw/main/7_test.png)
+
+## 🤖 AI Usage and Development Process
+
+This project was developed as an AI Kata, leveraging generative AI as a pair-programming partner to accelerate development and ensure best practices.
+
+1. #### Frontend (ChatGPT): 
+For the React frontend, ChatGPT was utilized to scaffold and implement key architectural patterns. Its primary contributions include:
+
+- Structuring the Context API for robust state management across the application.
+
+- Implementing the client-side logic for protected and public routes, ensuring proper access control.
+
+2. #### Backend (Gemini 2.5 Pro): 
+On the backend, Gemini 2.5 Pro was instrumental in building the core authentication system.
+
+- It assisted in creating the JWT-based authentication flow, including token generation, cookie management, and verification middleware.
+
+3. #### Testing (Gemini): 
+The entire TDD process and testing suite were developed in close collaboration with Gemini.
+
+- It played a key role in defining comprehensive test cases and generating the complete test files for both authentication and sweets API endpoints, ensuring high coverage and adherence to TDD principles.
+
 ## 📄 License
 
 Licensed under the [MIT License](LICENSE).  
