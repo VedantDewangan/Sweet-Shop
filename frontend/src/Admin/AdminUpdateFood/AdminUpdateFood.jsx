@@ -3,10 +3,12 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { useAuth } from "../../Auth/AuthContext";
 
 export default function AdminUpdateFood() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user } = useAuth();
   const categories = ["Chocolate", "Candy", "Lollipop", "Cake", "Pastry"];
   const [loading, setLoading] = useState(false);
   const [restockLoading, setRestockLoading] = useState(false);
@@ -18,6 +20,12 @@ export default function AdminUpdateFood() {
   const [category, setCategory] = useState("");
   const [quantity, setQuantity] = useState("");
   const [restockQty, setRestockQty] = useState("");
+
+  useEffect(() => {
+    if (user.email !== "candy@admin.com") {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
     const getFoodData = async () => {
