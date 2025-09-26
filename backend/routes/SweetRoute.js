@@ -1,5 +1,5 @@
-const express = require("express");
-const {
+import express from "express";
+import {
   getAllSweet,
   deleteSweet,
   updateSweet,
@@ -7,8 +7,9 @@ const {
   getSearchedSweet,
   purchaseSweet,
   restockSweet,
-} = require("../controller/SweetController");
-const { isLogin } = require("../utils/isLogin");
+} from "../controller/SweetController.js";
+import { isLogin } from "../utils/isLogin.js";
+
 const SweetRoute = express.Router();
 
 SweetRoute.get("/sweets", isLogin, getAllSweet);
@@ -19,4 +20,4 @@ SweetRoute.delete("/sweets/:id", isLogin, deleteSweet);
 SweetRoute.post("/sweets/:id/purchase", isLogin, purchaseSweet);
 SweetRoute.post("/sweets/:id/restock", isLogin, restockSweet);
 
-module.exports = { SweetRoute };
+export { SweetRoute };
