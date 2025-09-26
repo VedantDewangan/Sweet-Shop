@@ -1,0 +1,46 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 2vw;
+  width: 95vw;
+  background-color: #f6f6f6;
+}
+
+.navbar img {
+  height: 60px;
+}
+
+.navbar span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.navbar button {
+  transition: all 0.2s ease-in;
+  padding: 8px 14px;
+  cursor: pointer;
+  outline: none;
+  font-size: 1em;
+  border-radius: 10px;
+  font-weight: 600;
+  color: palevioletred;
+  background-color: white;
+  border: 2px solid palevioletred;
+}
+
+.navbar button:hover {
+  background-color: palevioletred;
+  color: white;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a:hover {
+  color: rgb(225, 5, 78);
+}
