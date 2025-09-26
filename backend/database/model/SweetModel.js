@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const SweetSchema = new mongoose.Schema({
   name: {
@@ -35,4 +35,4 @@ const SweetSchema = new mongoose.Schema({
 
 const Sweet = mongoose.model("Sweet", SweetSchema);
 
-module.exports = { Sweet };
+export { Sweet };
