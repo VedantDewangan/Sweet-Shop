@@ -124,6 +124,12 @@ For a detailed breakdown of all test cases, please see the public documentation:
 
 [View Detailed Test Cases](https://docs.google.com/document/d/1j5LB7cIASSESlG4oVnNT4HI2rvqRtMXPeAvs2rIbFLk/edit?tab=t.0)
 
+Simply run this in your terminal to test
+```bash
+cd .\backend\
+npm test
+```
+
 #### Testcase  
 ![test](https://github.com/VedantDewangan/Sweet-Shop/raw/main/7_test.png)
 
