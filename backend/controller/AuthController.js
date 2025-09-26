@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export const Register = async (req, res) => {
   try {
     const { email, password, name } = req.body;
@@ -14,17 +16,23 @@ export const Register = async (req, res) => {
       });
     }
 
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({
+        message: "Invalid email format",
+      });
+    }
+
     if (password.length < 8) {
       return res.status(400).json({
         message: "Password length atleast 8 characters",
       });
     }
 
-    const user = await User.find({
+    const user = await User.findOne({
       email: email,
     });
 
-    if (user.length >= 1) {
+    if (user) {
       return res.status(400).json({
         message: "This email already exist",
       });
